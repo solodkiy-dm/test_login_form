@@ -19,24 +19,9 @@ public class Main {
         //maximize our window
        driver.manage().window().maximize();
 
-//
-//        driver.findElement(By.xpath("//*[text()='standard_user']")).sendKeys(Keys.chord(Keys.CONTROL,"c"));
-//        // now apply the command to paste
-//        driver.findElement (By.xpath("///input[@id='user-name']")).
-//                sendKeys(Keys.chord(Keys.CONTROL, "v"));
-//        System.out.println(loginData);
-
-        String [] login = new String[3];
-        login[0] = "standard_user";
-        login[1] = "problem_user";
-        login[2] = "performance_glitch_user";
-        int n = (int)Math.floor(Math.random() * login.length);
-//        System.out.println(login[n]);
-
-
         WebElement inputUsername = driver.findElement(By.xpath("//input[@id='user-name']"));
         inputUsername.click();
-        inputUsername.sendKeys(login[n]);
+        inputUsername.sendKeys("standard_user");
 
         WebElement inputPassword = driver.findElement(By.xpath("//input[@id='password']"));
         inputPassword.click();
@@ -51,13 +36,6 @@ public class Main {
         buttonLogin.click();
 
         WebElement title = driver.findElement(By.xpath("//span[text()='Products']"));
-
-        System.out.println(driver.getTitle());
-//        if (!title.contains("Products")) {
-//            System.out.println("Error page");
-//        } else {
-//            System.out.println("It is main page!!!");
-//        }
 
         WebElement item_name = driver.findElement(By.xpath
                 ("(//div[@class='inventory_item_name'])[2]"));
